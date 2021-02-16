@@ -1,12 +1,11 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import PropTypes from "react-type";
+import { Link } from "react-router-dom";
 
 function BooksList({ book }) {
   const [imgURL, setImgURL] = useState("");
   const [author, setAuthor] = useState("");
-  console.log(imgURL);
-  console.log(author);
 
   useEffect(() => {
     const { author, featured_media } = book;
@@ -29,6 +28,7 @@ function BooksList({ book }) {
       </small>
       <img src={imgURL.imgURL} alt={book.title.rendered} />
       <div dangerouslySetInnerHTML={{ __html: book.excerpt.rendered }}></div>
+      <Link to={`/book/${book.id}`}> View Review </Link>
     </div>
   );
 }
