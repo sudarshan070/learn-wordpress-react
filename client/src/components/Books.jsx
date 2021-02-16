@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import BooksList from "./BooksList";
 
 export default function Books() {
   const [books, setBooks] = useState([]);
-  console.log(books);
+
 
   useEffect(() => {
     axios
@@ -15,14 +16,13 @@ export default function Books() {
   return (
     <div>
       {books.books ? (
-        books.books.map((book, i) => (
-          <div key={i}>
-            <h2>{book.title.rendered}</h2>
-          </div>
-        ))
+        books.books.map((book, i) => <BooksList key={i} book={book} />)
       ) : (
         <p>Loading...</p>
-      )}{" "}
+      )}
     </div>
   );
 }
+
+
+ 
