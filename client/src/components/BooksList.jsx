@@ -26,9 +26,24 @@ function BooksList({ book }) {
       <small>
         Review by <strong>{author.author}</strong>
       </small>
-      <img src={imgURL.imgURL} alt={book.title.rendered} />
-      <div dangerouslySetInnerHTML={{ __html: book.excerpt.rendered }}></div>
-      <Link to={`/book/${book.id}`}> View Review </Link>
+      <div style={{ width: "400px" }}>
+        <img
+          style={{ width: "100%" }}
+          src={imgURL.imgURL}
+          alt={book.title.rendered}
+        />
+      </div>
+
+      <div
+        style={{ fontSize: "14px" }}
+        dangerouslySetInnerHTML={{ __html: book.excerpt.rendered }}
+      ></div>
+      <Link
+        style={{ textDecoration: "none", color: "#888" }}
+        to={`/book/${book.id}`}
+      >
+        View Review
+      </Link>
     </div>
   );
 }
